@@ -1,0 +1,272 @@
+{
+    "last_updated": "2026-01-19T10:50:00Z",
+    "display_date": "Senin, 19 Januari 2026",
+    "marquee_text": "Selamat datang di Prediksi Bola WDBOS! | Selalu Utamakan Prediksi Sendiri!",
+    "leagues": [
+        {
+            "name": "ENGLISH PREMIER LEAGUE",
+            "matches": [
+                {
+                    "time": "20/01 03:00 WIB",
+                    "teams": "Brighton & Hove Albion VS Bournemouth AFC",
+                    "score": "1 : 2"
+                }
+            ]
+        },
+        {
+            "name": "ITALY SERIE A",
+            "matches": [
+                {
+                    "time": "20/01 00:30 WIB",
+                    "teams": "Cremonese VS Hellas Verona",
+                    "score": "1 : 1"
+                },
+                {
+                    "time": "20/01 02:45 WIB",
+                    "teams": "Lazio VS Como",
+                    "score": "2 : 0"
+                }
+            ]
+        },
+        {
+            "name": "SPAIN LA LIGA",
+            "matches": [
+                {
+                    "time": "20/01 03:00 WIB",
+                    "teams": "Elche CF VS Sevilla",
+                    "score": "1 : 2"
+                }
+            ]
+        },
+        {
+            "name": "LIGA PORTUGAL",
+            "matches": [
+                {
+                    "time": "20/01 03:15 WIB",
+                    "teams": "Estrela da Amadora VS Estoril Praia",
+                    "score": "1 : 1"
+                }
+            ]
+        },
+        {
+            "name": "SPAIN LA LIGA 2",
+            "matches": [
+                {
+                    "time": "20/01 02:30 WIB",
+                    "teams": "Granada VS Eibar",
+                    "score": "2 : 1"
+                }
+            ]
+        },
+        {
+            "name": "TURKIYE SUPER LEAGUE",
+            "matches": [
+                {
+                    "time": "19/01 21:00 WIB",
+                    "teams": "Konyaspor VS Eyupspor",
+                    "score": "0 : 2"
+                },
+                {
+                    "time": "20/01 00:00 WIB",
+                    "teams": "Goztepe AS VS Caykur Rizespor",
+                    "score": "1 : 2"
+                },
+                {
+                    "time": "20/01 00:00 WIB",
+                    "teams": "Besiktas VS Kayserispor",
+                    "score": "3 : 1"
+                }
+            ]
+        },
+        {
+            "name": "FRANCE LIGUE 2",
+            "matches": [
+                {
+                    "time": "20/01 02:45 WIB",
+                    "teams": "Nancy VS Guingamp",
+                    "score": "1 : 1"
+                }
+            ]
+        },
+        {
+            "name": "NETHERLANDS EERSTE DIVISIE",
+            "matches": [
+                {
+                    "time": "20/01 02:00 WIB",
+                    "teams": "Jong Ajax VS Roda JC",
+                    "score": "1 : 2"
+                },
+                {
+                    "time": "20/01 02:00 WIB",
+                    "teams": "Jong FC Utrecht VS Jong PSV Eindhoven",
+                    "score": "1 : 2"
+                }
+            ]
+        },
+        {
+            "name": "GREECE SUPER LEAGUE",
+            "matches": [
+                {
+                    "time": "19/01 23:00 WIB",
+                    "teams": "Panetolikos VS Levadiakos",
+                    "score": "2 : 1"
+                },
+                {
+                    "time": "20/01 01:00 WIB",
+                    "teams": "Volos NFC VS Atromitos",
+                    "score": "0 : 1"
+                }
+            ]
+        },
+        {
+            "name": "ROMANIA SUPERLIGA",
+            "matches": [
+                {
+                    "time": "20/01 01:00 WIB",
+                    "teams": "Petrolul Ploiesti VS CS Universitatea Craiova",
+                    "score": "1 : 2"
+                }
+            ]
+        },
+        {
+            "name": "LIGA PORTUGAL 2",
+            "matches": [
+                {
+                    "time": "20/01 01:00 WIB",
+                    "teams": "Feirense VS Porto B",
+                    "score": "1 : 2"
+                },
+                {
+                    "time": "20/01 01:00 WIB",
+                    "teams": "Sporting Lisbon B VS SC Uniao Torreense",
+                    "score": "1 : 1"
+                }
+            ]
+        },
+        {
+            "name": "UAE PRO LEAGUE",
+            "matches": [
+                {
+                    "time": "19/01 20:05 WIB",
+                    "teams": "Ajman Club VS Al Dhafra",
+                    "score": "1 : 2"
+                },
+                {
+                    "time": "19/01 22:45 WIB",
+                    "teams": "Shabab Al Ahli Dubai VS Dibba Al Fujairah",
+                    "score": "3 : 0"
+                }
+            ]
+        },
+        {
+            "name": "CYPRUS 1ST DIV",
+            "matches": [
+                {
+                    "time": "20/01 00:00 WIB",
+                    "teams": "Omonia Aradippou VS Enosis Neon Paralimni",
+                    "score": "0 : 1"
+                }
+            ]
+        },
+        {
+            "name": "ISRAEL PREMIER LEAGUE",
+            "matches": [
+                {
+                    "time": "20/01 00:30 WIB",
+                    "teams": "Hapoel Kiryat Shmona VS Hapoel Haifa",
+                    "score": "1 : 2"
+                },
+                {
+                    "time": "20/01 01:00 WIB",
+                    "teams": "Hapoel Tel Aviv VS Hapoel Beer Sheva",
+                    "score": "1 : 2"
+                }
+            ]
+        },
+        {
+            "name": "TURKIYE 1ST LIG",
+            "matches": [
+                {
+                    "time": "19/01 18:30 WIB",
+                    "teams": "Igdir FK VS Sakaryaspor",
+                    "score": "0 : 2"
+                },
+                {
+                    "time": "19/01 21:00 WIB",
+                    "teams": "Istanbulspor VS Ankara Keciorengucu",
+                    "score": "1 : 1"
+                },
+                {
+                    "time": "20/01 00:00 WIB",
+                    "teams": "Bodrum FK VS Sivasspor",
+                    "score": "1 : 2"
+                }
+            ]
+        },
+        {
+            "name": "SOUTH AFRICA PREMIERSHIP",
+            "matches": [
+                {
+                    "time": "20/01 00:30 WIB",
+                    "teams": "Mamelodi Sundowns VS Orbit College FC",
+                    "score": "3 : 0"
+                }
+            ]
+        },
+        {
+            "name": "KUWAIT CROWN PRINCE CUP",
+            "matches": [
+                {
+                    "time": "19/01 20:20 WIB",
+                    "teams": "Al Kuwait Kaifan VS Al Naser Al Farwaniyah",
+                    "score": "3 : 0"
+                },
+                {
+                    "time": "19/01 23:20 WIB",
+                    "teams": "Al Arabi Al Mansouriah VS Al Fahaheel",
+                    "score": "2 : 0"
+                }
+            ]
+        },
+        {
+            "name": "ISRAEL LIGA LEUMIT",
+            "matches": [
+                {
+                    "time": "20/01 00:00 WIB",
+                    "teams": "FC Kafr Qasim VS Maccabi Petah Tikva",
+                    "score": "1 : 2"
+                },
+                {
+                    "time": "20/01 00:00 WIB",
+                    "teams": "Hapoel Kfar Saba VS Hapoel Afula",
+                    "score": "1 : 2"
+                },
+                {
+                    "time": "20/01 00:00 WIB",
+                    "teams": "Hapoel Kfar Shalem VS Hapoel Raanana",
+                    "score": "1 : 1"
+                }
+            ]
+        },
+        {
+            "name": "COLOMBIA PRIMERA A",
+            "matches": [
+                {
+                    "time": "20/01 04:00 WIB",
+                    "teams": "Cucuta Deportivo VS Once Caldas",
+                    "score": "1 : 2"
+                }
+            ]
+        },
+        {
+            "name": "ARGENTINA CUP",
+            "matches": [
+                {
+                    "time": "20/01 07:15 WIB",
+                    "teams": "Estudiantes La Plata VS CA Ituzaingo",
+                    "score": "3 : 0"
+                }
+            ]
+        }
+    ]
+}

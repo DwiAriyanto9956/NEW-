@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediksi Bola WDBOS - Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap"
+        rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&display=swap');
+
+        :root {
+            --bg-deep: #060b18;
+            --glass-bg: rgba(15, 23, 42, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --accent-glow: #3b82f6;
+            --accent-yellow: #c3ed07;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --card-bg: #ffffff;
+            --card-text: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(195, 237, 7, 0.03) 0%, transparent 40%);
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .main-wrapper {
+            width: 100%;
+            max-width: 1100px;
+            padding: 60px 20px;
+        }
+
+        /* Branding Section */
+        .branding-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .branding-header p {
+            color: var(--accent-glow);
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            font-size: 0.7rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+
+        .branding-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.6) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.3));
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .meta-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 6px 14px;
+            border-radius: 50px;
+            border: 1px solid var(--glass-border);
+        }
+
+        /* Action Buttons */
+        .action-flex {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn-modern {
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid var(--glass-border);
+            background: var(--glass-bg);
+            color: #fff;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-modern:hover {
+            transform: translateY(-3px) scale(1.02);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-modern.highlight {
+            background: var(--accent-yellow);
+            color: #000;
+            border: none;
+        }
+
+        .btn-modern.highlight:hover {
+            background: #e1ff00;
+            box-shadow: 0 10px 30px rgba(195, 237, 7, 0.4);
+        }
+
+        /* Content Container */
+        .content-container {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 30px 25px;
+            backdrop-filter: blur(25px);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .content-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        }
+
+        .top-meta {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Marquee Section */
+        .marquee-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .marquee-box p {
+            color: var(--accent-yellow);
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: marquee-anim 20s linear infinite;
+        }
+
+        @keyframes marquee-anim {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Tables Premium Styling */
+        .league-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 25px;
+            background: var(--card-bg);
+            color: var(--card-text);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid #e2e8f0;
+            table-layout: fixed;
+        }
+
+        .league-table th,
+        .league-table td {
+            text-align: center !important;
+            vertical-align: middle !important;
+        }
+
+        .league-name-header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #fff;
+            padding: 14px !important;
+            font-size: 1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none !important;
+            text-align: center !important;
+            /* Pake rata tengah */
+        }
+
+        .col-header {
+            background: #f8fafc !important;
+            color: #1a56db !important;
+            /* Mengikuti warna Prediksi Skor */
+            font-weight: 900 !important;
+            font-size: 0.95rem !important;
+            text-transform: uppercase;
+            padding: 12px !important;
+            border-bottom: 2px solid #e2e8f0 !important;
+            text-align: center !important;
+        }
+
+        .league-table td {
+            padding: 12px 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #f1f5f9;
+            text-align: center !important;
+            /* Sejajarkan data */
+        }
+
+        .league-table tr:nth-child(even) td {
+            background: #fdfdfd;
+        }
+
+        .league-table tr:hover td {
+            background: #f0f9ff;
+            color: var(--accent-glow);
+        }
+
+
+        /* Konfigurasi Lebar Kolom agar Sejajar Sempurna */
+        .date-col {
+            width: 25% !important;
+        }
+
+        .match-col {
+            width: 50% !important;
+        }
+
+        .score-col {
+            width: 25% !important;
+        }
+
+        @media (max-width: 768px) {
+            .main-wrapper {
+                padding: 30px 15px;
+            }
+
+            .content-container {
+                padding: 30px 15px;
+                border-radius: 20px;
+            }
+
+            .league-name-header {
+                font-size: 1.1rem;
+                padding: 20px !important;
+            }
+
+            .league-table td {
+                padding: 15px 10px;
+                font-size: 0.85rem;
+            }
+
+            .branding-header h1 {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-wrapper">
+        <div class="branding-header">
+            <p>Prediksi Bola</p>
+            <h1>PREDIKSI BOLA WDBOS</h1>
+            <div class="meta-info">
+                <span><i class="ph ph-user"></i> By WDBOS</span>
+                <span><i class="ph ph-calendar-blank"></i> <span id="currentDateHeader">-</span></span>
+                <span><i class="ph ph-chat-centered-text"></i> -</span>
+                <span><i class="ph ph-star"></i> Sticky post</span>
+            </div>
+            <div style="margin-top: 15px; display: flex; justify-content: center; gap: 15px;">
+                <button id="refreshBtnMain"
+                    style="background: rgba(255, 255, 255, 0.1); color: #fff; border: 1px solid #444; padding: 10px 20px; border-radius: 30px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s;">
+                    <i class="ph-bold ph-arrows-clockwise" id="refreshIcon"></i> REFRESH DATA
+                </button>
+                <button id="copyBtn"
+                    style="background: var(--accent-yellow); color: #000; border: none; padding: 10px 20px; border-radius: 30px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: transform 0.2s;">
+                    <i class="ph-bold ph-copy" style="font-size: 1.2rem;"></i> SALIN SCRIPT JADWAL
+                </button>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <div class="top-meta" id="displayDateText">...</div>
+
+            <div class="marquee-box" id="marqueeContainer">
+                <p>Memuat pengumuman terbaru...</p>
+            </div>
+
+            <div id="dataContent">
+                <!-- Tables will be injected here -->
+                <div style="text-align: center; padding: 50px; color: #888;">
+                    <i class="ph ph-spinner ph-spin" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
+                    Menyingkronkan Jadwal...
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const CONFIG = {
+            DATA_URL: 'https://shortq.xyz/prediksibola',
+            POLLING_INTERVAL: 15000,
+            AUTO_REFRESH: true
+        };
+
+        let lastDataHash = null;
+
+        /**
+         * Fungsi untuk mengambil dan memproses data secara otomatis
+         * @param {boolean} force - Jika true, akan memaksa update meskipun data identik
+         */
+        async function updateDashboard(force = false) {
+            try {
+                const response = await fetch(`${CONFIG.DATA_URL}?t=${Date.now()}`);
+                if (!response.ok) throw new Error('Failed to fetch source page');
+
+                const htmlText = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlText, 'text/html');
+
+                // Cari elemen yang mengandung "PREDIKSI BOLA" (bisa di heading atau link)
+                const allElements = Array.from(doc.querySelectorAll('h1, h2, h3, a, div, span'));
+                const dateTarget = allElements.find(el =>
+                    el.textContent.toUpperCase().includes('PREDIKSI BOLA') &&
+                    /\d/.test(el.textContent) // Pastikan ada angka (tanggal) di dalamnya
+                );
+
+                // Cari link untuk fetching data (bisa link yang sama atau link di bawahnya)
+                const prediksiLink = Array.from(doc.querySelectorAll('a')).find(a =>
+                    a.textContent.toUpperCase().includes('PREDIKSI BOLA') &&
+                    !a.href.includes('Sabercoding.com')
+                );
+
+                let finalData;
+                let scheduleTitle = "";
+
+                if (dateTarget) {
+                    // AMBIL TEKS UTUH SESUAI ACUAN (Contoh: "PREDIKSI BOLA 19 - 20 JANUARI 2026")
+                    scheduleTitle = dateTarget.innerText.trim();
+                }
+
+                if (prediksiLink && prediksiLink.href && prediksiLink.href !== window.location.href) {
+                    const subRes = await fetch(`${prediksiLink.href}?t=${Date.now()}`);
+                    finalData = await subRes.text();
+                } else {
+                    finalData = htmlText;
+                }
+
+                // UPDATE LANGSUNG TANGGAL DI DASHBOARD
+                if (scheduleTitle) {
+                    window.currentScheduleTitle = scheduleTitle;
+                    document.getElementById('displayDateText').innerText = scheduleTitle;
+                }
+
+                const currentHash = btoa(unescape(encodeURIComponent(finalData + scheduleTitle))).substring(0, 32);
+                if (currentHash === lastDataHash && !force) {
+                    console.log('No changes detected.');
+                } else {
+                    processIncomingData(finalData);
+                    lastDataHash = currentHash;
+                }
+
+                // updateSyncInfo(true); // DIPERLUKAN LAGI KARENA ELEMENT SUDAH DIHAPUS
+            } catch (error) {
+                console.error('Update Error:', error);
+                // Fallback ke data.json lokal jika remote gagal
+                try {
+                    const localRes = await fetch('data.json');
+                    const localData = await localRes.json();
+                    renderWithJSON(localData);
+                } catch (e) {
+                    // Fail silently since UI is gone
+                }
+            } finally {
+                // statusBox logic removed
+            }
+        }
+
+        /**
+         * Menangani data yang masuk (baik HTML snippet atau JSON)
+         */
+        function processIncomingData(data) {
+            try {
+                const jsonData = JSON.parse(data);
+                renderWithJSON(jsonData);
+            } catch (e) {
+                // Jika bukan JSON, anggap sebagai HTML snippet
+                renderWithHTMLSnippet(data);
+            }
+        }
+
+        function renderWithJSON(data) {
+            document.getElementById('currentDateHeader').textContent = '-';
+            document.getElementById('displayDateText').textContent = data.display_date || '';
+            document.getElementById('marqueeContainer').innerHTML = `<p>${data.marquee_text || ''}</p>`;
+
+            let html = '';
+            data.leagues.forEach(league => {
+                html += `
+                <table class="league-table">
+                    <thead>
+                        <tr><th colspan="3" class="league-name-header">${league.name}</th></tr>
+                        <tr>
+                            <th class="col-header date-col">Tanggal & Waktu</th>
+                            <th class="col-header match-col">Pertandingan</th>
+                            <th class="col-header score-col">Prediksi Skor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${league.matches.map(m => `
+                            <tr>
+                                <td>${m.time}</td>
+                                <td>${m.teams}</td>
+                                <td>${m.score}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>`;
+            });
+            document.getElementById('dataContent').innerHTML = html;
+        }
+
+        function renderWithHTMLSnippet(htmlString) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlString, 'text/html');
+
+            // Ekstrak Tanggal - PRIORITASKAN panel Prediksi Bola yang didapat dari updateDashboard
+            if (window.currentScheduleTitle) {
+                document.getElementById('displayDateText').textContent = window.currentScheduleTitle;
+            } else {
+                const dateDiv = doc.querySelector('.date');
+                if (dateDiv) {
+                    document.getElementById('displayDateText').textContent = dateDiv.textContent;
+                }
+            }
+
+            // Ekstrak Marquee
+            const marqueeP = doc.querySelector('.marquee p');
+            if (marqueeP) {
+                document.getElementById('marqueeContainer').innerHTML = `<p>${marqueeP.textContent}</p>`;
+            }
+
+            // Ekstrak Tabel
+            const tables = doc.querySelectorAll('table');
+            const targetContainer = document.getElementById('dataContent');
+            targetContainer.innerHTML = '';
+
+            tables.forEach(table => {
+                const newTable = document.createElement('table');
+                newTable.className = 'league-table';
+
+                // Re-map internal structure to dashboard style
+                const rows = table.querySelectorAll('tr');
+                let leagueName = "League";
+                let matchesHtml = "";
+
+                rows.forEach((row, idx) => {
+                    if (idx === 0) {
+                        leagueName = row.textContent.trim();
+                    } else if (idx > 1) { // Skip header columns
+                        const cells = row.querySelectorAll('td');
+                        if (cells.length === 3) {
+                            matchesHtml += `<tr><td>${cells[0].textContent}</td><td>${cells[1].textContent}</td><td>${cells[2].textContent}</td></tr>`;
+                        }
+                    }
+                });
+
+                newTable.innerHTML = `
+                    <thead>
+                        <tr><th colspan="3" class="league-name-header">${leagueName}</th></tr>
+                        <tr>
+                            <th class="col-header date-col">Tanggal & Waktu</th>
+                            <th class="col-header match-col">Pertandingan</th>
+                            <th class="col-header score-col">Prediksi Skor</th>
+                        </tr>
+                    </thead>
+                    <tbody>${matchesHtml}</tbody>
+                `;
+                targetContainer.appendChild(newTable);
+            });
+        }
+
+
+        /**
+         * Fungsi untuk menyalin script HTML yang sudah dirender dengan tampilan SAMA PERSIS (Termasuk Header & Tombol Refresh)
+         * Menggunakan !important agar tidak terpengaruh CSS dari website lain
+         */
+        function copyGeneratedScript() {
+            const dateText = document.getElementById('displayDateText').innerText;
+            const marqueeText = document.getElementById('marqueeContainer').innerText;
+            const contentHtml = document.getElementById('dataContent').innerHTML;
+
+            const finalScript = `
+<!-- START WDBOS PREMIUM JADWAL AUTO-REFRESH -->
+<div id="wdbos-root" class="wdbos-wrapper">
+    <div class="wdbos-container">
+        <div id="wdbos-date" class="wdbos-date">${dateText}</div>
+        <div class="wdbos-marquee">
+            <span>${marqueeText}</span>
+        </div>
+        <div id="wdbos-content" class="wdbos-tables">
+            ${contentHtml.replace(/class="league-table"/g, 'class="wdbos-table"')
+                    .replace(/class="league-name-header"/g, 'class="wdbos-name"')
+                    .replace(/class="col-header/g, 'class="wdbos-col-head')}
+        </div>
+    </div>
+</div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
+    
+    .wdbos-wrapper * { box-sizing: border-box !important; }
+    .wdbos-wrapper { background-color: #060b18 !important; padding: 30px 15px !important; font-family: 'Outfit', sans-serif !important; color: #ffffff !important; line-height: 1.4 !important; }
+    .wdbos-container { max-width: 900px !important; margin: 0 auto !important; background: rgba(15, 23, 42, 0.9) !important; padding: 25px !important; border-radius: 20px !important; border: 1px solid rgba(255,255,255,0.1) !important; box-shadow: 0 25px 50px rgba(0,0,0,0.5) !important; backdrop-filter: blur(10px) !important; }
+    
+    .wdbos-date { margin-bottom: 20px !important; font-size: 1.2rem !important; font-weight: 800 !important; color: #fff !important; text-align: center !important; }
+    
+    .wdbos-marquee { background: rgba(255, 255, 255, 0.03) !important; border: 1px solid rgba(255,255,255,0.08) !important; padding: 12px 0 !important; margin-bottom: 25px !important; overflow: hidden !important; white-space: nowrap !important; border-radius: 12px !important; }
+    .wdbos-marquee span { color: #c3ed07 !important; font-weight: 700 !important; font-size: 0.95rem !important; display: inline-block !important; padding-left: 100% !important; animation: wdbos-anim 20s linear infinite !important; text-transform: uppercase !important; }
+    @keyframes wdbos-anim { 0% { transform: translateX(0); } 100% { transform: translateX(-200%); } }
+    
+    .wdbos-tables { width: 100% !important; text-align: center !important; }
+    .wdbos-table { width: 100% !important; border-collapse: separate !important; border-spacing: 0 !important; margin: 0 auto 25px auto !important; background: #fff !important; color: #1e293b !important; border-radius: 15px !important; overflow: hidden !important; table-layout: fixed !important; border: 1px solid #e2e8f0 !important; }
+    .wdbos-table th, .wdbos-table td { text-align: center !important; vertical-align: middle !important; padding: 12px 10px !important; font-family: 'Outfit', sans-serif !important; border-bottom: 1px solid #f1f5f9 !important; }
+    
+    .wdbos-table .wdbos-name { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important; font-weight: 900 !important; text-transform: uppercase !important; font-size: 1rem !important; color: #fff !important; padding: 14px !important; letter-spacing: 1px !important; border: none !important; }
+    .wdbos-table .wdbos-col-head { background: #f8fafc !important; font-size: 0.75rem !important; text-transform: uppercase !important; color: #1a56db !important; font-weight: 900 !important; padding: 10px !important; border-bottom: 2px solid #e2e8f0 !important; }
+    
+    .wdbos-table td { font-weight: 600 !important; font-size: 0.9rem !important; color: #1e293b !important; }
+    .wdbos-table tbody tr:nth-child(even) td { background: #fdfdfd !important; }
+    .wdbos-table td:nth-child(3) { color: #1a56db !important; font-weight: 900 !important; font-size: 1rem !important; }
+    
+    /* Column Proporsional */
+    .wdbos-table th:nth-child(1), .wdbos-table td:nth-child(1) { width: 25% !important; }
+    .wdbos-table th:nth-child(2), .wdbos-table td:nth-child(2) { width: 50% !important; }
+    .wdbos-table th:nth-child(3), .wdbos-table td:nth-child(3) { width: 25% !important; }
+
+    @media (max-width: 600px) {
+        .wdbos-wrapper { padding: 20px 10px !important; }
+        .wdbos-container { padding: 15px !important; }
+        .wdbos-table .wdbos-name { font-size: 0.85rem !important; padding: 10px !important; }
+        .wdbos-table td { padding: 8px 5px !important; font-size: 0.75rem !important; }
+    }
+</style>
+
+<script>
+// AUTO REFRESH JIKA DATA BERUBAH
+let wdbosLastDate = "${dateText}";
+async function wdbosCheckUpdate() {
+    try {
+        const res = await fetch('${CONFIG.DATA_URL}?t=' + Date.now());
+        const html = await res.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const candidates = Array.from(doc.querySelectorAll('h1, h2, h3, h4, a, b, strong'));
+        const targetEl = candidates.find(el => el.textContent.toUpperCase().includes('PREDIKSI BOLA'));
+        
+        if(targetEl) {
+            const currentDate = targetEl.innerText.replace(/PREDIKSI BOLA/gi, '').trim();
+            if(currentDate !== wdbosLastDate) {
+                wdbosLastDate = currentDate;
+                await wdbosRefresh();
+            }
+        }
+    } catch(e) {}
+}
+
+async function wdbosRefresh() {
+    try {
+        const res = await fetch('${CONFIG.DATA_URL}?t=' + Date.now());
+        const html = await res.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        
+        const candidates = Array.from(doc.querySelectorAll('h1, h2, h3, h4, a, b, strong'));
+        const targetEl = candidates.find(el => el.textContent.toUpperCase().includes('PREDIKSI BOLA'));
+        
+        if(targetEl) {
+            const dateText = targetEl.innerText.replace(/PREDIKSI BOLA/gi, '').trim();
+            document.getElementById('wdbos-date').innerText = dateText;
+            
+            let targetUrl = (targetEl.tagName === 'A') ? targetEl.href : null;
+            if (!targetUrl) {
+                const innerA = targetEl.querySelector('a');
+                const nextA = targetEl.nextElementSibling?.tagName === 'A' ? targetEl.nextElementSibling : null;
+                targetUrl = (innerA || nextA || { href: null }).href;
+            }
+
+            if(targetUrl && targetUrl !== window.location.href) {
+                const subRes = await fetch(targetUrl + '?t=' + Date.now());
+                const subHtml = await subRes.text();
+                const subDoc = parser.parseFromString(subHtml, 'text/html');
+                const tables = subDoc.querySelectorAll('table');
+                
+                if(tables.length > 0) {
+                    let newHtml = '';
+                    tables.forEach(t => {
+                        const rows = Array.from(t.querySelectorAll('tr'));
+                        const league = rows[0]?.textContent.trim() || 'LEAGUE';
+                        let mRows = '';
+                        rows.forEach((r, idx) => {
+                            if (idx > 1) { // Skip league name and header columns
+                                const c = r.querySelectorAll('td');
+                                if(c.length === 3) mRows += '<tr><td>'+c[0].innerText+'</td><td>'+c[1].innerText+'</td><td>'+c[2].innerText+'</td></tr>';
+                            }
+                        });
+                        newHtml += '<table class="wdbos-table"><thead><tr><th colspan="3" class="wdbos-name">'+league+'</th></tr><tr class="wdbos-col-head"><th>TANGGAL & WAKTU</th><th>PERTANDINGAN</th><th>PREDIKSI SKOR</th></tr></thead><tbody>'+mRows+'</tbody></table>';
+                    });
+                    document.getElementById('wdbos-content').innerHTML = newHtml;
+                }
+            }
+        }
+    } catch(e) {}
+}
+
+setInterval(wdbosCheckUpdate, 10000);
+<\\/script>
+<!-- END WDBOS PREMIUM JADWAL -->
+`.trim().replace('<\\/script>', '</' + 'script');
+
+            navigator.clipboard.writeText(finalScript).then(() => {
+                const btn = document.getElementById('copyBtn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="ph-bold ph-check"></i> BERHASIL DISALIN!';
+                btn.style.background = '#10b981';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = 'var(--accent-yellow)';
+                }, 2000);
+            });
+        }
+
+        // Init
+        document.getElementById('copyBtn').addEventListener('click', copyGeneratedScript);
+
+        document.getElementById('refreshBtnMain').addEventListener('click', function () {
+            const btn = this;
+            const icon = document.getElementById('refreshIcon');
+            const originalHTML = btn.innerHTML;
+
+            // Efek Visual Menekan
+            btn.style.transform = 'scale(0.95)';
+            btn.style.background = 'rgba(255, 255, 255, 0.2)';
+
+            // Berikan feedback visual "Sedang Memperbarui"
+            btn.innerHTML = `<i class="ph-bold ph-arrows-clockwise ph-spin"></i> MEMPERBARUI DATA...`;
+            btn.disabled = true;
+
+            updateDashboard(true).finally(() => {
+                setTimeout(() => {
+                    btn.style.transform = 'scale(1)';
+                    btn.style.background = 'rgba(255, 255, 255, 0.1)';
+                    btn.innerHTML = `<i class="ph-bold ph-check-circle"></i> DATA DIPERBARUI!`;
+                    btn.style.borderColor = '#10b981';
+
+                    setTimeout(() => {
+                        btn.innerHTML = originalHTML;
+                        btn.disabled = false;
+                        btn.style.borderColor = '#444';
+                    }, 2000);
+                }, 1000);
+            });
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            updateDashboard();
+            if (CONFIG.AUTO_REFRESH) {
+                setInterval(updateDashboard, CONFIG.POLLING_INTERVAL);
+            }
+        });
+    </script>
+</body>
+
+</html>
